@@ -75,8 +75,9 @@ pip install numpy pandas scikit-learn
 
 Input data should be in .tsv format:
 
-# sequences    protein_id    annotation_all    annotation_mf    annotation_bp    annotation_cc    orgs
-
+```bash
+ sequences    protein_id    annotation_all    annotation_mf    annotation_bp    annotation_cc    orgs
+```
 🧾 Field Description
 Column	Description
 sequences	Protein amino acid sequence
