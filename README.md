@@ -23,7 +23,7 @@ The model is designed to improve **prediction accuracy**, **robustness**, and **
 - ✅ Designed for CAFA-style protein function prediction
 
 ---
-
+```bash
 ## 📂 Project Structure
 ├── esm/ # ESM sequence encoder
 │ ├── axial_attention.py
