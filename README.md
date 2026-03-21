@@ -48,3 +48,24 @@ The model is designed to improve **prediction accuracy**, **robustness**, and **
 │
 ├── train_PredGOModel_cafa3.py # Training entry
 └── README.md
+
+
+---
+
+## ⚙️ Requirements
+
+### 🔧 Environment
+
+- Python >= 3.8
+- PyTorch >= 1.10
+- PyTorch Geometric
+- NumPy
+- Pandas
+- Scikit-learn
+
+### 📦 Installation
+
+```bash
+pip install torch torchvision
+pip install torch-geometric
+pip install numpy pandas scikit-learn
