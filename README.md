@@ -49,7 +49,7 @@ The model is designed to improve **prediction accuracy**, **robustness**, and **
 ├── train_PredGOModel_cafa3.py # Training entry
 └── README.md
 
-
+```
 ---
 
 ## ⚙️ Requirements
