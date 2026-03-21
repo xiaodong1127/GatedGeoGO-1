@@ -69,3 +69,16 @@ The model is designed to improve **prediction accuracy**, **robustness**, and **
 pip install torch torchvision
 pip install torch-geometric
 pip install numpy pandas scikit-learn
+
+```
+📊 Data Preparation
+
+Input data should be in .tsv format:
+
+sequences    protein_id    annotation_all    annotation_mf    annotation_bp    annotation_cc    orgs
+🧾 Field Description
+Column	Description
+sequences	Protein amino acid sequence
+protein_id	Unique protein identifier
+annotation_*	GO labels
+orgs	Organism
