@@ -71,7 +71,7 @@ pip install torch-geometric
 pip install numpy pandas scikit-learn
 
 ```
-📊 [Data Preparation] (https://pan.baidu.com/s/1valwROkws_IyUOlPYxIMkQ?pwd=p2kh)
+📊 Data Preparation [点击下载数据集](https://pan.baidu.com/s/1valwROkws_IyUOlPYxIMkQ?pwd=p2kh)
 
 Input data should be in .tsv format:
 
