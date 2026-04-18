@@ -84,3 +84,18 @@ sequences	Protein amino acid sequence
 protein_id	Unique protein identifier
 annotation_*	GO labels
 orgs	Organism
+
+
+## 🚀 Training and Evaluation
+
+The training and evaluation processes are integrated into a single script. Both model training and performance evaluation are automatically executed once the training script is launched.
+
+To reproduce the full pipeline (training + testing), simply run:
+
+python train_PredGOModel_cafa3.py \
+    --dataset CAFA3 \
+    --task MFO \
+    --batch_size 48 \
+    --lr 1e-4 \
+    --epochs 15 \
+    --gpu 0
