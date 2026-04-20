@@ -18,7 +18,6 @@ The model is designed to improve **prediction accuracy**, **robustness**, and **
 - ✅ Multimodal fusion (Sequence + Structure + GO)
 - ✅ Pretrained protein language model (ESM)
 - ✅ Geometric Vector Perceptron for 3D structure modeling
-- ✅ Support for **case study analysis**
 - ✅ Flexible architecture for backbone replacement
 - ✅ Designed for CAFA-style protein function prediction
 
@@ -49,9 +48,6 @@ The model is designed to improve **prediction accuracy**, **robustness**, and **
 ├── train_PredGOModel_cafa3.py # Training entry
 └── README.md
 
-```
----
-
 ## ⚙️ Requirements
 
 ### 🔧 Environment
@@ -65,22 +61,91 @@ The model is designed to improve **prediction accuracy**, **robustness**, and **
 
 ### 📦 Installation
 
+We provide a `requirements.txt` file for convenient environment setup.
+
+#### Option 1 (Recommended)
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Option 2 (Manual Installation)
+
 ```bash
 pip install torch torchvision
 pip install torch-geometric
 pip install numpy pandas scikit-learn
-
 ```
-📊 Data Preparation [点击下载数据集](https://pan.baidu.com/s/1valwROkws_IyUOlPYxIMkQ?pwd=p2kh)
 
-Input data should be in .tsv format:
+
+📊 Data Preparation [点击下载数据集](https://pan.baidu.com/s/1valwROkws_IyUOlPYxIMkQ?pwd=p2kh)
+After downloading, place all files under the `data/CAFA3/` directory.
+### 📁 Required Dataset Files
 
 ```bash
- sequences    protein_id    annotation_all    annotation_mf    annotation_bp    annotation_cc    orgs
+data/CAFA3/
+├── train.tsv
+├── validation.tsv
+├── test.tsv
+├── train_seqs.fasta
+├── validation_seqs.fasta
+├── test_seqs.fasta
+├── ppi_seqs.fasta
+├── ppi_score.tsv
+├── terms-50.tsv
+├── go.obo
+├── afdb_dir/              # AlphaFold predicted structures
+├── esm_dir/               # Extracted ESM embeddings
+└── PredGODataset/         # Cached processed graph data
 ```
-🧾 Field Description
-Column	Description
-sequences	Protein amino acid sequence
-protein_id	Unique protein identifier
-annotation_*	GO labels
-orgs	Organism
+
+### 📄 File Description
+
+| File | Description |
+|------|-------------|
+| train.tsv | Training set annotations |
+| validation.tsv | Validation set annotations |
+| test.tsv | Test set annotations |
+| *_seqs.fasta | Protein sequences in FASTA format |
+| ppi_seqs.fasta | PPI neighbor protein sequences |
+| ppi_score.tsv | STRING interaction scores |
+| terms-50.tsv | Selected GO term labels |
+| go.obo | Gene Ontology hierarchy file |
+| afdb_dir/ | AlphaFold structure files |
+| esm_dir/ | Precomputed ESM sequence embeddings |
+| PredGODataset/ | Intermediate processed graph data |
+
+### 🧾 TSV Format
+
+```bash
+sequences    protein_id    annotation_all    annotation_mf    annotation_bp    annotation_cc    orgs
+```
+
+| Column | Description |
+|--------|-------------|
+| sequences | Protein amino acid sequence |
+| protein_id | Unique protein identifier |
+| annotation_* | GO labels |
+| orgs | Organism |
+
+
+## 🚀 Training and Testing
+
+After completing the environment setup and data preparation, run the following command to start training and evaluation:
+
+```bash
+python train_PredGOModel_cafa3.py
+```
+
+Before model training begins, the pipeline will automatically perform:
+
+- ESM-based protein sequence feature extraction
+- Structural information preprocessing and graph construction
+- Dataset loading and feature preparation
+
+The script will then automatically execute:
+
+- Model training
+- Validation during training
+- Final testing on the benchmark dataset
+- Prediction result generation
